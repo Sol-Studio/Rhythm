@@ -12,15 +12,15 @@ def work(x,a):
     global bg_color, key
     key = 0
     for i in range(20):
+        time.sleep(0.004)
         pygame.draw.circle(SURFACE,a,(x,200),i*8)
         pygame.display.update()
 
 
 
     for i in range(20):
-
-        SURFACE.fill(bg_color)
-
+        time.sleep(0.004)
+        pygame.draw.circle(SURFACE,bg_color,(x,200),152-(i*8)+10)
         pygame.draw.circle(SURFACE,a,(x,200),152-(i*8))
         pygame.display.update()
 
@@ -46,21 +46,14 @@ while True:
     sysfont=pygame.font.SysFont(None, 70)
     #SURFACE.fill((255,255,255))
     for event in pygame.event.get():
-        '''
+
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
-        '''
+
         if event.type == KEYDOWN:
             key = event.key
 
-    '''
-    SURFACE.blit(sysfont.render("a",True,(0,0,0)), (150,400))    
-    SURFACE.blit(sysfont.render("s",True,(0,0,0)), (320,400))  
-    SURFACE.blit(sysfont.render("d",True,(0,0,0)), (470,400))  
-    SURFACE.blit(sysfont.render("f",True,(0,0,0)), (620,400))  
-
-    '''
 
         
     if key == 97:
