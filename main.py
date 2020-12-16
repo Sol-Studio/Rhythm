@@ -7,15 +7,15 @@ def work(x,a,key):
     global bg_color, keys
     keys.remove(key)
     for i in range(20):
-        time.sleep(0.004)
+        time.sleep(0.002)
         pygame.draw.circle(SURFACE,a,(x,200),i*8)
-        pygame.display.update()
+        #pygame.display.update()
 
     for i in range(20):
-        time.sleep(0.004)
+        time.sleep(0.002)
         pygame.draw.circle(SURFACE,bg_color,(x,200),152-(i*8)+10)
         pygame.draw.circle(SURFACE,a,(x,200),152-(i*8))
-        pygame.display.update()
+        #pygame.display.update()
     
 
 def random_color():
@@ -35,10 +35,10 @@ while True:
     ths = Thread(target=work, args=(400,colors, K_s))
     thd = Thread(target=work, args=(600,colord, K_d))
     thf = Thread(target=work, args=(800,colorf, K_f))
-    thh = Thread(target=work, args=(1000,colorh, K_h))
-    thj = Thread(target=work, args=(1200,colorj, K_j))
-    thk = Thread(target=work, args=(1400,colork, K_k))
-    thl = Thread(target=work, args=(1600,colorl, K_l))
+    thh = Thread(target=work, args=(1000,colorh, K_g))
+    thj = Thread(target=work, args=(1200,colorj, K_h))
+    thk = Thread(target=work, args=(1400,colork, K_j))
+    thl = Thread(target=work, args=(1600,colorl, K_k))
     
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -49,6 +49,7 @@ while True:
             if event.key == K_SPACE:
                 bg_color = random_color()
                 SURFACE.fill(bg_color)
+                pygame.display.update()
                 time.sleep(0.09)
             keys.append(event.key)
             
@@ -75,23 +76,20 @@ while True:
         colorf = random_color()
         thf.start()
 
-    elif K_h in keys:
+    elif K_g in keys:
         colorh = random_color()
         thh.start()
 
-    elif K_j in keys:
+    elif K_h in keys:
         colorj = random_color()
         thj.start()
 
-    elif K_k in keys:
+    elif K_j in keys:
         colork = random_color()
         thk.start()
 
-    elif K_l in keys:
+    elif K_k in keys:
         colorl = random_color()
         thl.start()
 
-    elif K_SPACE in keys:
-        key = 0
-        bg_color = random_color()
-        SURFACE.fill(bg_color)
+    pygame.display.update()
