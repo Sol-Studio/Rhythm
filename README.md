@@ -1,3 +1,11 @@
+리듬게임(?)
+노래가 나오는 것도 아니고
+정해진 박자에 눌러야되는 것도 아닙니다.
+단지 즐기기 위한 프로그램.
+
+
+
+
 this program imports
 
 import pygame<br>
